@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct TaskModel:Decodable{
+    let task: String
+    let title:String
+    let description:String
+    let colorCode:String
+}
