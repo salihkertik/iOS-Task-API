@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,16 +11,54 @@
         <!--Task List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TaskListViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TaskListViewController" customModule="iOS_Task_API" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5qO-zz-Q8l">
+                                <rect key="frame" x="0.0" y="64" width="348" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="6Sh-Ab-lsH"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="spi-Fh-44S"/>
+                                </connections>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-vv-DRm">
+                                <rect key="frame" x="345" y="59" width="48" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Jbj-qA-SsP"/>
+                                    <constraint firstAttribute="width" constant="48" id="f2B-jr-XIR"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="QR"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="myj-Bz-ETY">
+                                <rect key="frame" x="0.0" y="123" width="393" height="729"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="myj-Bz-ETY" secondAttribute="trailing" id="7Wh-Ff-NGe"/>
+                            <constraint firstAttribute="trailing" secondItem="c3p-vv-DRm" secondAttribute="trailing" id="BSq-Q2-VxC"/>
+                            <constraint firstItem="c3p-vv-DRm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="MjZ-xD-hu5"/>
+                            <constraint firstAttribute="bottom" secondItem="myj-Bz-ETY" secondAttribute="bottom" id="UYu-KF-Zfl"/>
+                            <constraint firstItem="5qO-zz-Q8l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WKG-md-wob"/>
+                            <constraint firstItem="5qO-zz-Q8l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="WcX-F5-bBd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5qO-zz-Q8l" secondAttribute="trailing" constant="45" id="Y1x-qh-A3j"/>
+                            <constraint firstItem="myj-Bz-ETY" firstAttribute="top" secondItem="5qO-zz-Q8l" secondAttribute="bottom" constant="3" id="chd-FW-jyV"/>
+                            <constraint firstItem="c3p-vv-DRm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="345" id="gEq-7U-hjU"/>
+                            <constraint firstItem="myj-Bz-ETY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wdr-09-VKl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>
