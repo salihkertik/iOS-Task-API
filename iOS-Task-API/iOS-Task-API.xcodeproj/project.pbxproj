@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		9CA11A612B0BF1420034CFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A602B0BF1420034CFB3 /* AppDelegate.swift */; };
 		9CA11A632B0BF1420034CFB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A622B0BF1420034CFB3 /* SceneDelegate.swift */; };
-		9CA11A652B0BF1420034CFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A642B0BF1420034CFB3 /* ViewController.swift */; };
+		9CA11A652B0BF1420034CFB3 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A642B0BF1420034CFB3 /* TaskListViewController.swift */; };
 		9CA11A682B0BF1420034CFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CA11A662B0BF1420034CFB3 /* Main.storyboard */; };
 		9CA11A6A2B0BF1430034CFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CA11A692B0BF1430034CFB3 /* Assets.xcassets */; };
 		9CA11A6D2B0BF1430034CFB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CA11A6B2B0BF1430034CFB3 /* LaunchScreen.storyboard */; };
+		9CA11A7A2B0BF2190034CFB3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A792B0BF2190034CFB3 /* TaskModel.swift */; };
+		9CA11A7C2B0BF2290034CFB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */; };
+		9CA11A7F2B0BF6320034CFB3 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9CA11A5D2B0BF1420034CFB3 /* iOS-Task-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Task-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA11A602B0BF1420034CFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CA11A622B0BF1420034CFB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9CA11A642B0BF1420034CFB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9CA11A642B0BF1420034CFB3 /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		9CA11A672B0BF1420034CFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CA11A692B0BF1430034CFB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CA11A6C2B0BF1430034CFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CA11A6E2B0BF1430034CFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CA11A792B0BF2190034CFB3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +47,11 @@
 			isa = PBXGroup;
 			children = (
 				9CA11A5F2B0BF1420034CFB3 /* iOS-Task-API */,
+				9CA11A752B0BF1DB0034CFB3 /* Model */,
+				9CA11A762B0BF1EB0034CFB3 /* Network */,
+				9CA11A772B0BF1F80034CFB3 /* Views */,
+				9CA11A782B0BF2040034CFB3 /* Controllers */,
+				9CA11A7D2B0BF2950034CFB3 /* Supporting Files */,
 				9CA11A5E2B0BF1420034CFB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,13 +69,51 @@
 			children = (
 				9CA11A602B0BF1420034CFB3 /* AppDelegate.swift */,
 				9CA11A622B0BF1420034CFB3 /* SceneDelegate.swift */,
-				9CA11A642B0BF1420034CFB3 /* ViewController.swift */,
-				9CA11A662B0BF1420034CFB3 /* Main.storyboard */,
-				9CA11A692B0BF1430034CFB3 /* Assets.xcassets */,
-				9CA11A6B2B0BF1430034CFB3 /* LaunchScreen.storyboard */,
 				9CA11A6E2B0BF1430034CFB3 /* Info.plist */,
 			);
 			path = "iOS-Task-API";
+			sourceTree = "<group>";
+		};
+		9CA11A752B0BF1DB0034CFB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CA11A792B0BF2190034CFB3 /* TaskModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9CA11A762B0BF1EB0034CFB3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9CA11A772B0BF1F80034CFB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CA11A782B0BF2040034CFB3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9CA11A642B0BF1420034CFB3 /* TaskListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9CA11A7D2B0BF2950034CFB3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9CA11A662B0BF1420034CFB3 /* Main.storyboard */,
+				9CA11A6B2B0BF1430034CFB3 /* LaunchScreen.storyboard */,
+				9CA11A692B0BF1430034CFB3 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +187,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CA11A652B0BF1420034CFB3 /* ViewController.swift in Sources */,
+				9CA11A652B0BF1420034CFB3 /* TaskListViewController.swift in Sources */,
 				9CA11A612B0BF1420034CFB3 /* AppDelegate.swift in Sources */,
+				9CA11A7F2B0BF6320034CFB3 /* TaskTableViewCell.swift in Sources */,
+				9CA11A7C2B0BF2290034CFB3 /* NetworkManager.swift in Sources */,
+				9CA11A7A2B0BF2190034CFB3 /* TaskModel.swift in Sources */,
 				9CA11A632B0BF1420034CFB3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
