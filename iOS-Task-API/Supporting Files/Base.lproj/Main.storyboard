@@ -26,17 +26,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="spi-Fh-44S"/>
                                 </connections>
                             </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-vv-DRm">
-                                <rect key="frame" x="345" y="59" width="48" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="Jbj-qA-SsP"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="qrcode.viewfinder" catalog="system"/>
-                                <connections>
-                                    <action selector="scanQRButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oKm-8v-vqu"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="myj-Bz-ETY">
                                 <rect key="frame" x="0.0" y="123" width="393" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,19 +85,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3p-vv-DRm">
+                                <rect key="frame" x="348" y="76" width="50" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="vDu-Vr-ieV"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="qrcode.viewfinder" catalog="system"/>
+                                <connections>
+                                    <action selector="scanQRButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oKm-8v-vqu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="myj-Bz-ETY" firstAttribute="top" secondItem="c3p-vv-DRm" secondAttribute="bottom" constant="15" id="6cL-5R-zwL"/>
                             <constraint firstAttribute="trailing" secondItem="myj-Bz-ETY" secondAttribute="trailing" id="7Wh-Ff-NGe"/>
-                            <constraint firstAttribute="trailing" secondItem="c3p-vv-DRm" secondAttribute="trailing" id="BSq-Q2-VxC"/>
-                            <constraint firstItem="c3p-vv-DRm" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="MjZ-xD-hu5"/>
                             <constraint firstAttribute="bottom" secondItem="myj-Bz-ETY" secondAttribute="bottom" id="UYu-KF-Zfl"/>
                             <constraint firstItem="5qO-zz-Q8l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WKG-md-wob"/>
                             <constraint firstItem="5qO-zz-Q8l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="WcX-F5-bBd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5qO-zz-Q8l" secondAttribute="trailing" constant="45" id="Y1x-qh-A3j"/>
                             <constraint firstItem="myj-Bz-ETY" firstAttribute="top" secondItem="5qO-zz-Q8l" secondAttribute="bottom" constant="3" id="chd-FW-jyV"/>
-                            <constraint firstItem="c3p-vv-DRm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="345" id="gEq-7U-hjU"/>
+                            <constraint firstItem="c3p-vv-DRm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="17" id="nFg-h3-lHA"/>
+                            <constraint firstItem="c3p-vv-DRm" firstAttribute="leading" secondItem="5qO-zz-Q8l" secondAttribute="trailing" id="p0D-5k-ahL"/>
                             <constraint firstItem="myj-Bz-ETY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wdr-09-VKl"/>
                         </constraints>
                     </view>
@@ -120,7 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="130.43478260869566" y="-34.821428571428569"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="ikR-rb-yiH">

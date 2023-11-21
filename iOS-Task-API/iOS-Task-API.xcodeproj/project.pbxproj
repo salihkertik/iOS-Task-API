@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C335D342B0D3C9A00305F10 /* iOS_Task_APITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C335D332B0D3C9A00305F10 /* iOS_Task_APITests.swift */; };
 		9CA11A612B0BF1420034CFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A602B0BF1420034CFB3 /* AppDelegate.swift */; };
 		9CA11A632B0BF1420034CFB3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A622B0BF1420034CFB3 /* SceneDelegate.swift */; };
 		9CA11A652B0BF1420034CFB3 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A642B0BF1420034CFB3 /* TaskListViewController.swift */; };
@@ -20,7 +21,19 @@
 		9CA11A862B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A842B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9C335D352B0D3C9A00305F10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9CA11A552B0BF1420034CFB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9CA11A5C2B0BF1420034CFB3;
+			remoteInfo = "iOS-Task-API";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		9C335D312B0D3C9900305F10 /* iOS-Task-APITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Task-APITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C335D332B0D3C9A00305F10 /* iOS_Task_APITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_Task_APITests.swift; sourceTree = "<group>"; };
 		9CA11A5D2B0BF1420034CFB3 /* iOS-Task-API.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Task-API.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA11A602B0BF1420034CFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CA11A622B0BF1420034CFB3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +50,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9C335D2E2B0D3C9900305F10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CA11A5A2B0BF1420034CFB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C335D322B0D3C9A00305F10 /* iOS-Task-APITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C335D332B0D3C9A00305F10 /* iOS_Task_APITests.swift */,
+			);
+			path = "iOS-Task-APITests";
+			sourceTree = "<group>";
+		};
 		9CA11A542B0BF1420034CFB3 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +84,7 @@
 				9CA11A772B0BF1F80034CFB3 /* Views */,
 				9CA11A782B0BF2040034CFB3 /* Controllers */,
 				9CA11A7D2B0BF2950034CFB3 /* Supporting Files */,
+				9C335D322B0D3C9A00305F10 /* iOS-Task-APITests */,
 				9CA11A5E2B0BF1420034CFB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				9CA11A5D2B0BF1420034CFB3 /* iOS-Task-API.app */,
+				9C335D312B0D3C9900305F10 /* iOS-Task-APITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +155,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9C335D302B0D3C9900305F10 /* iOS-Task-APITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C335D372B0D3C9A00305F10 /* Build configuration list for PBXNativeTarget "iOS-Task-APITests" */;
+			buildPhases = (
+				9C335D2D2B0D3C9900305F10 /* Sources */,
+				9C335D2E2B0D3C9900305F10 /* Frameworks */,
+				9C335D2F2B0D3C9900305F10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C335D362B0D3C9A00305F10 /* PBXTargetDependency */,
+			);
+			name = "iOS-Task-APITests";
+			productName = "iOS-Task-APITests";
+			productReference = 9C335D312B0D3C9900305F10 /* iOS-Task-APITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		9CA11A5C2B0BF1420034CFB3 /* iOS-Task-API */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9CA11A712B0BF1430034CFB3 /* Build configuration list for PBXNativeTarget "iOS-Task-API" */;
@@ -152,6 +200,10 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					9C335D302B0D3C9900305F10 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 9CA11A5C2B0BF1420034CFB3;
+					};
 					9CA11A5C2B0BF1420034CFB3 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -173,11 +225,19 @@
 			projectRoot = "";
 			targets = (
 				9CA11A5C2B0BF1420034CFB3 /* iOS-Task-API */,
+				9C335D302B0D3C9900305F10 /* iOS-Task-APITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9C335D2F2B0D3C9900305F10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CA11A5B2B0BF1420034CFB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +251,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9C335D2D2B0D3C9900305F10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C335D342B0D3C9A00305F10 /* iOS_Task_APITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9CA11A592B0BF1420034CFB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +275,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C335D362B0D3C9A00305F10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9CA11A5C2B0BF1420034CFB3 /* iOS-Task-API */;
+			targetProxy = 9C335D352B0D3C9A00305F10 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9CA11A662B0BF1420034CFB3 /* Main.storyboard */ = {
@@ -228,6 +304,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9C335D382B0D3C9A00305F10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9TCWXH8WU4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.reck.iOS-Task-APITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-Task-API.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS-Task-API";
+			};
+			name = Debug;
+		};
+		9C335D392B0D3C9A00305F10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9TCWXH8WU4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.reck.iOS-Task-APITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS-Task-API.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/iOS-Task-API";
+			};
+			name = Release;
+		};
 		9CA11A6F2B0BF1430034CFB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -406,6 +518,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9C335D372B0D3C9A00305F10 /* Build configuration list for PBXNativeTarget "iOS-Task-APITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C335D382B0D3C9A00305F10 /* Debug */,
+				9C335D392B0D3C9A00305F10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9CA11A582B0BF1420034CFB3 /* Build configuration list for PBXProject "iOS-Task-API" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
