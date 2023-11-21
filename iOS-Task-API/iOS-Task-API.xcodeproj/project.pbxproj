@@ -16,6 +16,7 @@
 		9CA11A7A2B0BF2190034CFB3 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A792B0BF2190034CFB3 /* TaskModel.swift */; };
 		9CA11A7C2B0BF2290034CFB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */; };
 		9CA11A7F2B0BF6320034CFB3 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */; };
+		9CA11A832B0C38BB0034CFB3 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A822B0C38BB0034CFB3 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9CA11A792B0BF2190034CFB3 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		9CA11A822B0C38BB0034CFB3 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				9CA11A642B0BF1420034CFB3 /* TaskListViewController.swift */,
+				9CA11A822B0C38BB0034CFB3 /* ScannerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CA11A832B0C38BB0034CFB3 /* ScannerViewController.swift in Sources */,
 				9CA11A652B0BF1420034CFB3 /* TaskListViewController.swift in Sources */,
 				9CA11A612B0BF1420034CFB3 /* AppDelegate.swift in Sources */,
 				9CA11A7F2B0BF6320034CFB3 /* TaskTableViewCell.swift in Sources */,

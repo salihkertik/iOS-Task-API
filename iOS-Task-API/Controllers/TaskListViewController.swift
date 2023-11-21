@@ -1,13 +1,18 @@
-//
 //  ViewController.swift
 //  iOS-Task-API
-//
 //  Created by Salih Kertik on 20.11.2023.
-//
+
+// To Do;
+
+// Extension and Function classification
+// Refresh
+// Offline Mode
+// Button Icon
 
 import UIKit
+import AVFoundation
 
-class TaskListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +32,7 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.rowHeight = 160
     }
     
+    
     func fetchData(){
         NetworkManager.shared.authenticateUser { accessToken in
             guard let accessToken = accessToken else { return }
@@ -44,20 +50,24 @@ class TaskListViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-}
-
-// TaskListViewController.swift
-
-extension TaskListViewController {
-    @objc func refreshData(_ sender: Any) {
-        fetchData()
-        // Yenileme kontrolünü durdur
-        (sender as? UIRefreshControl)?.endRefreshing()
+    
+    @IBAction func scanQRButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toScannerVC", sender: nil)
+    }
+    
+    // QR Kodu bulduğunda searchBar'a yaz.
+    func found(code: String) {
+        print(code)
+        
+        // QR kodu bulunduğunda searchBar'a yaz
+        searchBar.text = code
+        filterContentForSearchText(code)
     }
 }
 
 
-extension TaskListViewController {
+// MARK: - UISearchBarDelegate
+extension TaskListViewController: UISearchBarDelegate {
     func filterContentForSearchText(_ searchText: String) {
         filteredTasks = allTasks.filter { task in
             return task.title.lowercased().contains(searchText.lowercased()) ||
@@ -83,8 +93,8 @@ extension TaskListViewController {
     
 }
 
-extension TaskListViewController {
-    // MARK: - UITableViewDataSource
+// MARK: - UITableViewDataSource,UITableViewDelegate
+extension TaskListViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredTasks.count
@@ -97,20 +107,5 @@ extension TaskListViewController {
         cell.configure(with: task)
         
         return cell
-    }
-    
-    // MARK: - UITableViewDelegate
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Seçilen hücre ile ilgili işlemler buraya eklenebilir
-        // Örneğin, detay sayfasına geçiş yapabilirsin
-    }
-    
-    // MARK: - Pull-to-Refresh
-    
-    func setupRefreshControl() {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-        tableView.refreshControl = refreshControl
     }
 }

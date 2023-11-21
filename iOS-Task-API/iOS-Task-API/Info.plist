@@ -26,5 +26,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) Need Camera Access to Scan QR Code Image Where Customer ID is Saved</string>
 </dict>
 </plist>

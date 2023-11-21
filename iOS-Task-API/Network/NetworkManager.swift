@@ -8,10 +8,12 @@
 import Foundation
 
 class NetworkManager {
+    
     static let shared = NetworkManager()
     
     private init() {}
     
+    // MARK: - authenticateUser
     func authenticateUser(completion: @escaping (String?) -> Void) {
         let headers = [
             "Authorization": "Basic QVBJX0V4cGxvcmVyOjEyMzQ1NmlzQUxhbWVQYXNz",
@@ -54,6 +56,7 @@ class NetworkManager {
         task.resume()
     }
     
+    // MARK: - fetchTasks
     func fetchTasks(accessToken: String, completion: @escaping ([TaskModel]?) -> Void) {
         // API'den görevleri çekme işlemini buraya ekle
         // Bu kısmı implemente etmediğim için bu kısmı senin projene özel olarak tamamlaman gerekiyor
