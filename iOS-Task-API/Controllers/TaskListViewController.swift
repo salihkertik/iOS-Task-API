@@ -2,30 +2,33 @@
 //  iOS-Task-API
 //  Created by Salih Kertik on 20.11.2023.
 
-// To Do;
-// Offline Mode
 
 import UIKit
 import AVFoundation
 import CoreData
+import Network
 
 class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Properties
+    
     var allTasks: [TaskModel] = []
     var filteredTasks: [TaskModel] = []
     
+    let monitor = NWPathMonitor()
     var refreshControl = UIRefreshControl()
     
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-                
+        
         tableView.rowHeight = 160
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -38,19 +41,27 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         
         fetchData()
         fetchTasksFromCoreData()
+        NetworkControl()
         
         if allTasks.isEmpty {
             showAlert(message: "Offline mode. Failed to load data.")
         }
     }
     
-    func showAlert(message: String) {
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
+    // MARK: - Offline Mode Control
+    func NetworkControl(){
+        monitor.pathUpdateHandler = { path in
+            if path.status == .unsatisfied {
+                // Wi-Fi kapalı
+                self.showAlert(message: "You are in Offline Mode.")
+            }
+        }
+        
+        let queue = DispatchQueue(label: "NetworkMonitor")
+        monitor.start(queue: queue)
     }
     
+    // MARK: - Core Data Methods
     func saveTasksToCoreData() {
         
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -91,17 +102,7 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         }
     }
     
-    @objc func refresh(refreshControl: UIRefreshControl){
-        DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
-            self.fetchData()
-            self.refreshControl.endRefreshing()
-        }
-    }
-    
-    @objc func handleTap(){
-        view.endEditing(true)// close keyboard
-    }
-    
+    // MARK: - Network Methods
     func fetchData(){
         NetworkManager.shared.authenticateUser { accessToken in
             guard let accessToken = accessToken else { return }
@@ -111,7 +112,6 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                 
                 self.allTasks = tasks
                 self.filteredTasks = tasks
-                //+
                 DispatchQueue.main.async {
                     self.saveTasksToCoreData()
                     self.tableView.reloadData()
@@ -120,21 +120,40 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         }
     }
     
-    
+    // MARK: - UI Actions
     @IBAction func scanQRButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toScannerVC", sender: nil)
     }
     
-    // QR Kodu bulduğunda searchBar'a yaz.
+    // MARK: - AVCaptureMetadataOutputObjectsDelegate
     func found(code: String) {
         print(code)
-        
         // QR kodu bulunduğunda searchBar'a yaz
         searchBar.text = code
         filterContentForSearchText(code)
     }
+    
+    // MARK: - Helper Methods
+    @objc func handleTap(){
+        view.endEditing(true)// close keyboard
+    }
+    
+    func showAlert(message: String) {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl){
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
+            self.fetchData()
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
-
 
 // MARK: - UISearchBarDelegate
 extension TaskListViewController: UISearchBarDelegate {

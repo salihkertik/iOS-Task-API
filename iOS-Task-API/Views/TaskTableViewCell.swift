@@ -13,6 +13,8 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // MARK: - Helpers Methods
+    
     func configure(with task: TaskModel){
         taskLabel.text = task.task
         titleLabel.text = task.title

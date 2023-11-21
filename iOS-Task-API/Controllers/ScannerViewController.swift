@@ -9,10 +9,10 @@ import AVFoundation
 import UIKit
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var cancelButton: UIButton!
-
     var isScanning: Bool = false
     
     override func viewDidLoad() {
@@ -70,7 +70,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         NSLayoutConstraint.activate([
             cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             cancelButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 26)
-        
+            
         ])
         
     }
