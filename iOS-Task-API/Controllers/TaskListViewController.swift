@@ -7,6 +7,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
@@ -20,13 +21,11 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
-        
-        fetchData()
-        
+                
         tableView.rowHeight = 160
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -34,8 +33,62 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         view.addGestureRecognizer(tapGesture)
         
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = UIColor.white
+        refreshControl.tintColor = UIColor.darkGray
         tableView.addSubview(refreshControl)
+        
+        fetchData()
+        fetchTasksFromCoreData()
+        
+        if allTasks.isEmpty {
+            showAlert(message: "Offline mode. Failed to load data.")
+        }
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func saveTasksToCoreData() {
+        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        for task in allTasks {
+            let taskEntity = CoreDataModel(context: context)
+            taskEntity.task = task.task
+            taskEntity.title = task.title
+            taskEntity.desc = task.description
+            taskEntity.colorCode = task.colorCode
+        }
+        
+        do {
+            try context.save()
+            print("Data saved to CoreData.")
+        } catch {
+            print("Error saving data to CoreData: \(error)")
+        }
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
+    func fetchTasksFromCoreData() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        do {
+            allTasks = try context.fetch(CoreDataModel.fetchRequest()).map {
+                TaskModel(task: $0.task ?? "",
+                          title: $0.title ?? "",
+                          description: $0.desc ?? "",
+                          colorCode: $0.colorCode ?? "")
+            }
+            filteredTasks = allTasks
+            tableView.reloadData()
+            print("Data fetched from CoreData.")
+        } catch {
+            print("Error fetching tasks from CoreData: \(error)")
+        }
     }
     
     @objc func refresh(refreshControl: UIRefreshControl){
@@ -58,8 +111,9 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
                 
                 self.allTasks = tasks
                 self.filteredTasks = tasks
-                
+                //+
                 DispatchQueue.main.async {
+                    self.saveTasksToCoreData()
                     self.tableView.reloadData()
                 }
             }

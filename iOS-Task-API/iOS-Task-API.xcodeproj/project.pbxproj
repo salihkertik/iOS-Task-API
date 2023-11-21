@@ -17,6 +17,7 @@
 		9CA11A7C2B0BF2290034CFB3 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */; };
 		9CA11A7F2B0BF6320034CFB3 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */; };
 		9CA11A832B0C38BB0034CFB3 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A822B0C38BB0034CFB3 /* ScannerViewController.swift */; };
+		9CA11A862B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9CA11A842B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9CA11A7B2B0BF2290034CFB3 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9CA11A7E2B0BF6320034CFB3 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		9CA11A822B0C38BB0034CFB3 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		9CA11A852B0D08AF0034CFB3 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			children = (
 				9CA11A602B0BF1420034CFB3 /* AppDelegate.swift */,
 				9CA11A622B0BF1420034CFB3 /* SceneDelegate.swift */,
+				9CA11A842B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld */,
 				9CA11A6E2B0BF1430034CFB3 /* Info.plist */,
 			);
 			path = "iOS-Task-API";
@@ -196,6 +199,7 @@
 				9CA11A7F2B0BF6320034CFB3 /* TaskTableViewCell.swift in Sources */,
 				9CA11A7C2B0BF2290034CFB3 /* NetworkManager.swift in Sources */,
 				9CA11A7A2B0BF2190034CFB3 /* TaskModel.swift in Sources */,
+				9CA11A862B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld in Sources */,
 				9CA11A632B0BF1420034CFB3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +423,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9CA11A842B0D08AF0034CFB3 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9CA11A852B0D08AF0034CFB3 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 9CA11A852B0D08AF0034CFB3 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9CA11A552B0BF1420034CFB3 /* Project object */;
 }
