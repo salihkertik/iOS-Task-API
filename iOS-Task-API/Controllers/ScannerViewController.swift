@@ -11,6 +11,9 @@ import UIKit
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
+    var cancelButton: UIButton!
+
+    var isScanning: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +49,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             return
         }
         
+        isScanning = true
+        
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         previewLayer.frame = view.layer.bounds
         previewLayer.videoGravity = .resizeAspectFill
@@ -53,6 +58,31 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         DispatchQueue.global(qos: .background).async {
             self.captureSession.startRunning()
+        }
+        
+        cancelButton = UIButton(type: .system)
+        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        view.addSubview(cancelButton)
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            cancelButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 26)
+        
+        ])
+        
+    }
+    
+    @objc func cancelButtonTapped(){
+        DispatchQueue.global(qos: .background).async {
+            self.captureSession.stopRunning()
+            self.isScanning = false
+            
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
@@ -67,7 +97,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         super.viewWillAppear(animated)
         
         if (captureSession?.isRunning == false) {
-            captureSession.startRunning()
+            DispatchQueue.global(qos: .background).async {
+                self.captureSession.startRunning()
+            }
         }
     }
     
