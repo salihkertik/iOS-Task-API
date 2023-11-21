@@ -3,10 +3,7 @@
 //  Created by Salih Kertik on 20.11.2023.
 
 // To Do;
-
-// Refresh
 // Offline Mode
-// Button Icon
 
 import UIKit
 import AVFoundation
@@ -16,9 +13,10 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    
     var allTasks: [TaskModel] = []
     var filteredTasks: [TaskModel] = []
+    
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +32,17 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.white
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(refreshControl: UIRefreshControl){
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.5){
+            self.fetchData()
+            self.refreshControl.endRefreshing()
+        }
     }
     
     @objc func handleTap(){
