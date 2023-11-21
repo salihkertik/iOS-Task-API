@@ -4,7 +4,6 @@
 
 // To Do;
 
-// Extension and Function classification
 // Refresh
 // Offline Mode
 // Button Icon
@@ -16,6 +15,7 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
     
     var allTasks: [TaskModel] = []
     var filteredTasks: [TaskModel] = []
@@ -30,8 +30,15 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
         fetchData()
         
         tableView.rowHeight = 160
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
     
+    @objc func handleTap(){
+        view.endEditing(true)// close keyboard
+    }
     
     func fetchData(){
         NetworkManager.shared.authenticateUser { accessToken in
