@@ -58,8 +58,6 @@ class NetworkManager {
     
     // MARK: - fetchTasks
     func fetchTasks(accessToken: String, completion: @escaping ([TaskModel]?) -> Void) {
-        // API'den görevleri çekme işlemini buraya ekle
-        // Bu kısmı implemente etmediğim için bu kısmı senin projene özel olarak tamamlaman gerekiyor
         let urlString = "https://api.baubuddy.de/dev/index.php/v1/tasks/select"
         guard let url = URL(string: urlString) else {
             completion(nil)

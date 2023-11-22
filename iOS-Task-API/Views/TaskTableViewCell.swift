@@ -23,7 +23,6 @@ class TaskTableViewCell: UITableViewCell {
         if let color = hexStringToUIColor(hex: task.colorCode) {
             backgroundColor = color
         } else {
-            // Default bir renk kullanabilirsiniz
             backgroundColor = UIColor.gray
         }
     }

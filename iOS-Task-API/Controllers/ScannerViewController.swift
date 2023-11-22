@@ -126,13 +126,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func found(code: String) {
         print(code)
-        
-        // QR kodu bulunduğunda TaskListViewController'daki found metodunu çağır
+        // Call found method in TaskListViewController when QR code is found
         if let taskListVC = presentingViewController as? TaskListViewController {
             taskListVC.found(code: code)
         }
-        
-        // Bu view controller'ı kapat
+        // Close this view controller
         dismiss(animated: true)
     }
     

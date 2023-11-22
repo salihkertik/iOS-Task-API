@@ -128,14 +128,15 @@ class TaskListViewController: UIViewController, AVCaptureMetadataOutputObjectsDe
     // MARK: - AVCaptureMetadataOutputObjectsDelegate
     func found(code: String) {
         print(code)
-        // QR kodu bulunduğunda searchBar'a yaz
+        // When the QR code is found write it to searchBar
         searchBar.text = code
         filterContentForSearchText(code)
     }
     
     // MARK: - Helper Methods
     @objc func handleTap(){
-        view.endEditing(true)// close keyboard
+        // closing the keyboard
+        view.endEditing(true)
     }
     
     func showAlert(message: String) {
